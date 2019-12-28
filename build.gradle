@@ -9,6 +9,7 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
 configurations {
+
 	developmentOnly
 	runtimeClasspath {
 		extendsFrom developmentOnly
@@ -20,13 +21,25 @@ configurations {
 
 repositories {
 	mavenCentral()
+	jcenter()
+	maven {
+		url 'http://jaspersoft.artifactoryonline.com/jaspersoft/third-party-ce-artifacts/'
+	}
 }
 
 dependencies {
+
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	compileOnly 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
 	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 	annotationProcessor 'org.projectlombok:lombok'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+
+	compileOnly 'org.projectlombok:lombok'
+	implementation 'net.sf.jasperreports:jasperreports:6.10.0'
+    implementation 'io.springfox:springfox-swagger-ui:2.8.0'
+    implementation 'io.springfox:springfox-swagger2:2.8.0'
 }

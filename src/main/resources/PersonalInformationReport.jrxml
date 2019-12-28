@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.11.0.final using JasperReports Library version 6.11.0-0c4056ccaa4d25a5a8c45672d2f764ea3498bebb  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PersonalInformationReport" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9af66d4e-7d29-4d93-bc02-da90ccd4813f">
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="name" class="java.lang.String"/>
+	<field name="CPF" class="java.lang.String"/>
+	<field name="birthDate" class="java.time.LocalDate"/>
+	<field name="addressNumber" class="java.lang.Integer"/>
+	<field name="streatName" class="java.lang.String"/>
+	<field name="cityName" class="java.lang.String"/>
+	<field name="stateName" class="java.lang.String"/>
+	<title>
+		<band height="46" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="10" width="550" height="30" uuid="3dbf54fc-ceb9-4997-ab81-49ad18a4216f"/>
+				<textElement textAlignment="Center">
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[Termo de confirmação de informações pessoais]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="748" splitType="Stretch">
+			<frame>
+				<reportElement x="0" y="20" width="550" height="20" uuid="f636723e-1fc6-4432-9f87-c8460520ccd8"/>
+				<staticText>
+					<reportElement x="0" y="0" width="30" height="20" uuid="39343482-00cd-4e69-ba6a-e258e9479ab7"/>
+					<text><![CDATA[Nome:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="40" y="0" width="100" height="20" uuid="682c4ced-3337-4b06-9202-b6efa769f058"/>
+					<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement x="0" y="70" width="550" height="20" uuid="978038ba-f577-4102-8d51-ab29be05c12a"/>
+				<staticText>
+					<reportElement x="0" y="0" width="30" height="20" uuid="c8fbae15-b7f3-4c49-9ee4-55aae404a036"/>
+					<text><![CDATA[CPF:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="30" y="0" width="100" height="20" uuid="abb33c0b-16dd-496d-8d60-ec90fa6c664f"/>
+					<textFieldExpression><![CDATA[$F{CPF}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement x="0" y="120" width="550" height="20" uuid="944e7ce0-8904-49c0-99e0-06aec76a87ea"/>
+				<staticText>
+					<reportElement x="0" y="0" width="60" height="20" uuid="967014eb-adaf-4808-8236-02a4ccf27413"/>
+					<text><![CDATA[Data Nasc.:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="60" y="0" width="100" height="20" uuid="44b1f2ec-67c6-482f-9610-a318c41f8a52"/>
+					<textFieldExpression><![CDATA[$F{birthDate}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement x="0" y="160" width="550" height="20" uuid="33e7ba1d-1722-43f5-a037-73951d1bff87"/>
+				<staticText>
+					<reportElement x="0" y="0" width="50" height="20" uuid="0754b8fc-b9bc-4c8f-8a96-ed50a56273a3"/>
+					<text><![CDATA[Endereço:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="50" y="0" width="500" height="20" uuid="28c6cfb8-1aa4-460a-b5e2-3db89698b370"/>
+					<textElement>
+						<font fontName="Ink Free"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{streatName} + ", " + $F{addressNumber} + ", " + $F{cityName} + " - " + $F{stateName}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+</jasperReport>
