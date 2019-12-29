@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
+import java.util.Objects;
 
 //@RequestMapping(path = "/contract")
 @RestController(value = "/contract")
@@ -21,13 +22,16 @@ public class ContractGeneratorController {
     @Autowired
     ContractService contractService;
 
-    @PostMapping(value = "/generate",produces = MediaType.APPLICATION_PDF_VALUE)
-    public void generateContract(@RequestBody(required = true) PersonalDataInfoReportDTO personalDataInfoReportDTO)
+    @PostMapping(value = "/generate", produces = MediaType.APPLICATION_PDF_VALUE)
+    public ResponseEntity<byte[]> generateContract(@RequestBody(required = true) PersonalDataInfoReportDTO personalDataInfoReportDTO)
             throws IOException, JRException {
 
         byte[] contract = contractService.generateContract(personalDataInfoReportDTO);
 
-        ResponseEntity.ok()
+        System.out.println(contract.length);
+        System.out.println(Objects.nonNull(contract));
+
+        return ResponseEntity.ok()
                 .header("Content-Disposition", "attachment; filename=" + 1 + ".pdf")
                 .contentLength(contract.length)
                 .contentType(MediaType.APPLICATION_PDF)
